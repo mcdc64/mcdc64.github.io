@@ -28,7 +28,11 @@ section, summary, time, mark, audio, video {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
-
+video{
+	max-width:100%;
+	height: auto !important;
+	max-height:100%
+}
 body {
 	line-height: 1;
 }
