@@ -1,40 +1,86 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	ZeroFour by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head>
-<link rel="stylesheet" type="text/css" href="default.css">
-<script src="jquery.js"></script>
-<script src="jquery.jslatex.js"></script>
-<script>
-$(function () {
-    $(".latex").latex();
-});
-$(function () {
-    $(".latex_small").latex();
-});
-</script>
-</head>
-<body background = "/images/background.png">
-<h1>Cian McDonnell</h1>
-<div id = "button_bar">
+	<head>
+		<title>Orbit Simulator</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
 
-	<div class = "dropdown">
-	<button onclick="window.location.href = 'index.html';">Projects</button>
-		<div class = "dropdown-content">
-		<a href="orbits.html">Orbit Simulator</a>
-		</div>
-	</div>
-	<button onclick="window.location.href = 'aboutme.html';">About</button>
-</div>
-<div  id="main_body">
-	<h2>Orbit Simulator</h2>
+			<!-- Header Wrapper -->
+				<div id="header-wrapper">
+					<div class="container">
+
+						<!-- Header -->
+							<header id="header">
+								<div class="inner">
+
+
+										
+
+									<!-- Nav -->
+										<nav id="nav" >
+											<ul>
+												
+												<li>
+													<a href="index.html">Projects</a>
+													<ul>
+														<li><a href="orbits.html">Orbit Simulator</a></li>
+														<!--<li><a href="#">Magna phasellus</a></li>
+														<li>
+															<a href="#">Phasellus consequat</a>
+															<ul>
+																<li><a href="#">Lorem ipsum dolor</a></li>
+																<li><a href="#">Phasellus consequat</a></li>
+																<li><a href="#">Magna phasellus</a></li>
+																<li><a href="#">Etiam dolore nisl</a></li>
+															</ul>
+														</li>
+														<li><a href="#">Veroeros feugiat</a></li>-->
+													</ul>
+												</li>
+												<li class="current_page_item"><a href="about.html">About</a></li>
+											</ul>
+										</nav>
+
+								</div>
+							</header>
+							<div id="banner">
+								<h2><strong>Cian McDonnell</strong>
+
+							</div>
+					</div>
+				</div>
+
+			<!-- Main Wrapper -->
+				<div id="main-wrapper">
+					<div class="wrapper style2">
+						<div class="inner">
+							<div class="container">
+								<div id="content">
+
+									<!-- Content -->
+
+										<article>
+											<header class="major">
+												<h2>Orbit Simulator</h2>
+												
+											</header>
+
 	<video controls="controls" src="images/orbit_sim_video.mp4">
     Your browser does not support the HTML5 Video element.
 	</video>
 	<p>Code for this simulator can be found <a href="https://github.com/mcdc64/orbit_simulator">here</a>. Requires tkinter and matplotlib.</p>
 	<p>In the late 17th century, Isaac Newton published work outlining the nature of a force that causes all of the objects in the universe to attract each other. Today, we call this force gravity.
 	The gravitational force between any two objects in the universe is given by</p>
-	<div class="latex">
-    F = \frac{GMm}{r^2}</div>
+	<img src ="images/orbit_latex_1.png">
 	<p>where F is the force, G is the gravitational constant, M and m are the masses of the objects, and r is their distance. This is an example of an inverse-square law, a mathematical relation that commonly
 	appears in physics. If the distance between the objects is doubled, the force is reduced by a factor of four (four being the square of two). <br>As it turns out, a force following an inverse-square law tends to make
 	particles feeling the force move in repetitive ways or paths.
@@ -57,23 +103,70 @@ $(function () {
 	4. Given the velocity, calculate the object's position at t + Δt.<br><br>
 	5. Now we know the position and velocity at t + Δt. Repeat from step 1 until the desired time is reached.<br><br>
 	This set of steps is a special case of Euler's method, a method of solving ordinary differential equations. We can sum up the steps in the following equations:</p>
-	<div class="latex"style="width:25%;">
-	\\
-    x(t+ \Delta t) = x(t) + \Delta t(v(t)) \\ v(t+ \Delta t) = v(t) + \Delta t(a(t))
-	</div>
+	<img src = "images/orbit_latex_2.png">
 	<p>where x(t) and v(t) are the position and velocity at time t, a is the acceleration, t is the current time, and Δt is the difference between the current time and future time.<br><br>
 	This method is a decent way of determining the positions at a given time, but unfortunately it is not very good for simulating processes that may take a long time.
 	Every time we make a "step" from t to t + Δt, there is a certain amount of error associated with the new position and velocity, because we approximate the acceleration as constant in the equations above.
 	With Euler's method, this error tends to make the energy of the system grow with time. If left unchecked, the planets would fly apart!<br><br>
 	Luckily, there is a small modification that we can make to the set of equations above to resolve this issue. If we use the velocity at t + Δt to calculate the position at t + Δt, the energy does not tend
 	to grow.</p>
-		<div class="latex"style="width:30%;">
-	\\
-    v(t+ \Delta t) = v(t) + \Delta t(a(t)) \\ x(t+ \Delta t) = x(t) + \Delta t(v(t+ \Delta t))
-	</div>
-	<p>This method is called the semi-implicit Euler method. It is used in this simulator, and, assuming the timestep is small enough, the paths of the planets remain stable for many orbits.
-</div>
+	<img src = "images/orbit_latex_3.png">
+	<p>This method is called the semi-implicit Euler's method. It is used in this simulator, and, assuming the timestep is small enough, the paths of the planets remain stable for many orbits.
 
-</div>
-</body>
+									
+										</article>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			<!-- Footer Wrapper -->
+				<div id="footer-wrapper">
+					<footer id="footer" class="container">
+						<div class="row">
+							
+							<div class="col-6 col-12-medium imp-medium">
+
+								
+								<!-- Contact -->
+									<section>
+										<h2>Contact</h2>
+										<div>
+											<div class="row">
+												<div class="col-6 col-12-small">
+													<dl class="contact">
+														<dt>Email</dt>
+														<dd>cian.mcdonnell@protonmail.com</dd>
+													</dl>
+												</div>
+											</div>
+										</div>
+									</section>
+
+							</div>
+							<div class="col-12">
+								<div id="copyright">
+									<ul class="menu">
+										<li>&copy; Cian McDonnell</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
