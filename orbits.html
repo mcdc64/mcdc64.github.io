@@ -33,20 +33,11 @@
 													<a href="index.html">Projects</a>
 													<ul>
 														<li><a href="orbits.html">Orbit Simulator</a></li>
-														<!--<li><a href="#">Magna phasellus</a></li>
-														<li>
-															<a href="#">Phasellus consequat</a>
-															<ul>
-																<li><a href="#">Lorem ipsum dolor</a></li>
-																<li><a href="#">Phasellus consequat</a></li>
-																<li><a href="#">Magna phasellus</a></li>
-																<li><a href="#">Etiam dolore nisl</a></li>
-															</ul>
-														</li>
-														<li><a href="#">Veroeros feugiat</a></li>-->
+														<li><a href="projectiles.html">Projectiles in Atmospheres</a></li>
+														
 													</ul>
 												</li>
-												<li class="current_page_item"><a href="about.html">About</a></li>
+												<li><a href="about.html">About</a></li>
 											</ul>
 										</nav>
 
@@ -103,14 +94,14 @@
 	4. Given the velocity, calculate the object's position at t + Δt.<br><br>
 	5. Now we know the position and velocity at t + Δt. Repeat from step 1 until the desired time is reached.<br><br>
 	This set of steps is a special case of Euler's method, a method of solving ordinary differential equations. We can sum up the steps in the following equations:</p>
-	<img src = "images/orbit_latex_2.png">
+	<img class = "equation" src = "images/orbit_latex_2.png">
 	<p>where x(t) and v(t) are the position and velocity at time t, a is the acceleration, t is the current time, and Δt is the difference between the current time and future time.<br><br>
 	This method is a decent way of determining the positions at a given time, but unfortunately it is not very good for simulating processes that may take a long time.
 	Every time we make a "step" from t to t + Δt, there is a certain amount of error associated with the new position and velocity, because we approximate the acceleration as constant in the equations above.
 	With Euler's method, this error tends to make the energy of the system grow with time. If left unchecked, the planets would fly apart!<br><br>
 	Luckily, there is a small modification that we can make to the set of equations above to resolve this issue. If we use the velocity at t + Δt to calculate the position at t + Δt, the energy does not tend
 	to grow.</p>
-	<img src = "images/orbit_latex_3.png">
+	<img class = "equation" src = "images/orbit_latex_3.png">
 	<p>This method is called the semi-implicit Euler's method. It is used in this simulator, and, assuming the timestep is small enough, the paths of the planets remain stable for many orbits.
 
 									
@@ -150,7 +141,7 @@
 							<div class="col-12">
 								<div id="copyright">
 									<ul class="menu">
-										<li>&copy; Cian McDonnell</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										<li style="color:#ddd;">&copy; Cian McDonnell</li><li style="color:#ddd;">Design: <a href="http://html5up.net">HTML5 UP</a></li>
 									</ul>
 								</div>
 							</div>

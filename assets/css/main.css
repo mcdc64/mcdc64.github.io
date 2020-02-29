@@ -22,6 +22,7 @@ section, summary, time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
+	color:#000000;
 	font: inherit;
 	vertical-align: baseline;}
 
@@ -32,6 +33,14 @@ video{
 	max-width:100%;
 	height: auto !important;
 	max-height:100%
+}
+
+.equation{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	
+	
 }
 body {
 	line-height: 1;
@@ -1548,6 +1557,7 @@ input, select, textarea {
 
 	dl.contact dd {
 		margin: 0 0 1em 6em;
+		color: #ddd;
 	}
 
 	ul.default {
@@ -1989,6 +1999,7 @@ input, select, textarea {
 		border-top: solid 1px;
 		border-color: #444;
 		border-color: rgba(255, 255, 255, 0.075);
+		
 		text-align: center;
 		margin-top: 2em;
 		padding: 3em 0 4em 0;

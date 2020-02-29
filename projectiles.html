@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<!--
+	ZeroFour by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Projectiles in Atmospheres</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header Wrapper -->
+				<div id="header-wrapper">
+					<div class="container">
+
+						<!-- Header -->
+							<header id="header">
+								<div class="inner">
+
+
+										
+
+									<!-- Nav -->
+										<nav id="nav" >
+											<ul>
+												
+												<li>
+													<a href="index.html">Projects</a>
+													<ul>
+														<li><a href="orbits.html">Orbit Simulator</a></li>
+														<li><a href="projectiles.html">Projectiles in Atmospheres</a></li>
+
+													</ul>
+												</li>
+												<li><a href="about.html">About</a></li>
+											</ul>
+										</nav>
+
+								</div>
+							</header>
+							<div id="banner">
+								<h2><strong>Cian McDonnell</strong>
+
+							</div>
+					</div>
+				</div>
+
+			<!-- Main Wrapper -->
+				<div id="main-wrapper">
+					<div class="wrapper style2">
+						<div class="inner">
+							<div class="container">
+								<div id="content">
+
+									<!-- Content -->
+
+										<article>
+											<header class="major">
+												<h2>Projectiles in Atmospheres</h2>
+												
+											</header>
+
+	<video controls="controls" src="images/projectiles/projectiles_video.mp4">
+    Your browser does not support the HTML5 Video element.
+	</video>
+	<p>Code for this project can be found <a href="https://github.com/mcdc64/projectiles">here</a>. Requires the Python modules: tkinter, numpy, matplotlib and scipy.</p>
+	<p>One of the first problems that are studied by new physics students is that of the projectile. A projectile is an object that is launched from a certain point (e.g. a cannon), and is then allowed to move
+	under gravity. Usually, the goal is to calculate how the projectile will move after being launched. In other words, we want to find its position at any given point in time. To do this we can solve the
+	projectile's equation of motion. This is an equation that we come up with using the following steps:<br>
+	1. Add up all of the forces acting on the projectile.<br>
+	2. Set these forces equal to the object's mass, multiplied by its acceleration.<br>
+	The second step is a direct result of a physical law discovered by Isaac Newton, thus it is referred to as Newton's Second Law. Writing this as an equation:</p>
+	<img class ="equation" src ="images/projectiles/n2l.png">
+	<p>Where ΣF is the sum of the forces, m is the mass, and a is the acceleration.
+	Due to the fact that a is the second derivative of the position with respect to time, this is a differential equation that can be solved to find position as a function of time.</p>
+	<img class ="equation" src ="images/projectiles/eqn_2.png">
+	<p>In the case of the projectile, we need to find all of the forces acting on the projectile while in flight to find its position as a function of time. We can split these into forces that act in the horizontal direction
+	and forces that act in the vertical direction. As the forces become one dimensional, we can thus drop the vector notations on F.</p>
+	<img class ="equation" src ="images/projectiles/eqn_3.png"><br>
+	<img class ="equation" src ="images/projectiles/eqn_4.png"><br>
+	<p>Gravity always acts straight downwards, so it exerts no horizontal force on the projectile - only a vertical force, -mg. (The force is negative because we choose downward forces to be negative).
+	Of course, since there is nothing touching the projectile, the only force acting on it is gravity...</p><br>
+	<img class ="equation" src = "images/projectiles/eqn_5.png"><br>
+	<img class ="equation" src = "images/projectiles/eqn_6.png"><br>
+	<p><b>Or is it?</b></p><br>
+	<h2>Air Resistance</h2>
+	<p>As it turns out, real life makes projectiles a bit more complicated. On Earth, gravity is <b>not</b> the only force that affects projectiles in flight. There is also air resistance or drag, which is the tendency of air to
+	exert a force that opposes the motion or velocity of any object moving through the air. Since it opposes the velocity of a projectile, it can also have a horizontal component. It is proportional to the square of the
+	velocity: If an object moves twice as fast, it will feel four times as much air resistance.</p><br>
+	<img class ="equation" src ="images/projectiles/eqn_7.png"><br>
+	<p>The hat on the v simply denotes a unit vector in the direction of the projectile's velocity, while k is a constant of proportionality.
+	We can split up the components of the air resistance and add them to our equations of motion.</p>
+	<img class = "equation" src = "images/projectiles/eqn_8.png"><br>
+	<p>Even though we have only added one extra force, our equations look a lot more complicated now. The projectile now has a force acting on it that is proportional to the velocity squared, meaning that our differential
+	equations are no longer linear. If that wasn't bad enough, the "constant" k actually changes with the projectile's height due to changing air density. 
+	Overall, finding a solution to these differential equations would take a long time by hand (if an analytical solution even exists).
+	This is why we usually ignore air resistance when we first learn how to calculate the trajectories of projectiles.
+	At this point, the best thing to do is to put down our pens and pick up the keyboard - it's time to put the computer to work!</p>
+	<h2>Numerical Solutions</h2>
+	<p>When solving a differential equation analytically is difficult or impossible, we can let computers do the work for us. There are many algorithms that can give approximate solutions to the differential equations
+	above, some more accurate than others. A simple example is Euler's method (see the Orbit Simulator page for an explanation of this). Most of the algorithms work by splitting the motion of the particle
+	into many small jumps or "steps", and approximating the changes in position and velocity during each step.
+	Given an initial position and velocity, this projectile simulator calculates the flight path of a projectile that experiences both the gravitational force and air resistance. It also shows the path of a projectile
+	that only experiences gravity, for comparison. It is as if this projectile is in a vacuum. With no air attempting to slow it down, the vacuum projectile always travels further than the one feeling air resistance.
+	This is especially noticeable if the starting velocity is very high, as the air resistance is much greater at high velocities. In the simulation at the start of the video above (in the first minute), the vacuum
+	projectile travels just over 500m before first hitting the ground and bouncing back, while the "atmospheric" projectile doesn't even reach 400m before first hitting the ground.
+	In the simulation shown in the last 20 seconds of the video, the starting velocity is much smaller, and so the difference in the two trajectories is not as pronounced.</p>
+	<h2>Terminal Velocity</h2>
+	<img class ="equation" src ="images/projectiles/terminal_v.jpg">
+	<p>One interesting projectile problem that requires air resistance is "terminal velocity". This occurs when the projectile is falling downward. In this situation, the downwards force on the projectile due to gravity is balanced
+	exactly by the upwards force from air resistance. The result is that the object falls with constant velocity. It is also the reason skydivers fall more slowly when they spread out their limbs. By increasing the area
+	that the air hits as they fall, the overall air resistance is increased, resulting in a lower falling velocity.</p>
+	<p>In the video, a simulation that showcases this phenomenon begins at 1 minute, 25 seconds. The vacuum projectile is hidden so that its trajectory does not obscure that of the atmospheric projectile.
+	The atmospheric projectile is allowed to fall straight down. As it does so, the number shown on its "Y Velocity" readout begins to increase (become more negative). However, as it gets faster and faster, the speed begins to increase more
+	slowly. Though the projectile bounces off the ground, if it were allowed to fall indefinitely, its speed would approach a certain limit - the terminal velocity. In this case, the limit is about 78 m/s. It depends
+	on a number of different factors, all of which can be edited in the project code.</p>
+	<p>The differential equations in this project are solved with scipy's integrate.odeint function.</p>
+	
+	
+
+									
+										</article>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			<!-- Footer Wrapper -->
+				<div id="footer-wrapper">
+					<footer id="footer" class="container">
+						<div class="row">
+							
+							<div class="col-6 col-12-medium imp-medium">
+
+								
+								<!-- Contact -->
+									<section>
+										<h2>Contact</h2>
+										<div>
+											<div class="row">
+												<div class="col-6 col-12-small">
+													<dl class="contact">
+														<dt>Email</dt>
+														<dd>cian.mcdonnell@protonmail.com</dd>
+													</dl>
+												</div>
+											</div>
+										</div>
+									</section>
+
+							</div>
+							<div class="col-12">
+								<div id="copyright">
+									<ul class="menu">
+										<li style="color:#ddd;">&copy; Cian McDonnell</li><li style="color:#ddd;">Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
