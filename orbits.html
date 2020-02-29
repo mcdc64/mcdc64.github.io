@@ -65,13 +65,13 @@
 												
 											</header>
 
-	<video controls="controls" src="images/orbit_sim_video.mp4">
+	<video controls="controls" src="images/orbits/orbit_sim_video.mp4">
     Your browser does not support the HTML5 Video element.
 	</video>
 	<p>Code for this simulator can be found <a href="https://github.com/mcdc64/orbit_simulator">here</a>. Requires tkinter and matplotlib.</p>
 	<p>In the late 17th century, Isaac Newton published work outlining the nature of a force that causes all of the objects in the universe to attract each other. Today, we call this force gravity.
 	The gravitational force between any two objects in the universe is given by</p>
-	<img src ="images/orbit_latex_1.png">
+	<img src ="images/orbits/orbit_latex_1.png">
 	<p>where F is the force, G is the gravitational constant, M and m are the masses of the objects, and r is their distance. This is an example of an inverse-square law, a mathematical relation that commonly
 	appears in physics. If the distance between the objects is doubled, the force is reduced by a factor of four (four being the square of two). <br>As it turns out, a force following an inverse-square law tends to make
 	particles feeling the force move in repetitive ways or paths.
@@ -94,14 +94,14 @@
 	4. Given the velocity, calculate the object's position at t + Δt.<br><br>
 	5. Now we know the position and velocity at t + Δt. Repeat from step 1 until the desired time is reached.<br><br>
 	This set of steps is a special case of Euler's method, a method of solving ordinary differential equations. We can sum up the steps in the following equations:</p>
-	<img class = "equation" src = "images/orbit_latex_2.png">
+	<img class = "equation" src = "images/orbits/orbit_latex_2.png">
 	<p>where x(t) and v(t) are the position and velocity at time t, a is the acceleration, t is the current time, and Δt is the difference between the current time and future time.<br><br>
 	This method is a decent way of determining the positions at a given time, but unfortunately it is not very good for simulating processes that may take a long time.
 	Every time we make a "step" from t to t + Δt, there is a certain amount of error associated with the new position and velocity, because we approximate the acceleration as constant in the equations above.
 	With Euler's method, this error tends to make the energy of the system grow with time. If left unchecked, the planets would fly apart!<br><br>
 	Luckily, there is a small modification that we can make to the set of equations above to resolve this issue. If we use the velocity at t + Δt to calculate the position at t + Δt, the energy does not tend
 	to grow.</p>
-	<img class = "equation" src = "images/orbit_latex_3.png">
+	<img class = "equation" src = "images/orbits/orbit_latex_3.png">
 	<p>This method is called the semi-implicit Euler's method. It is used in this simulator, and, assuming the timestep is small enough, the paths of the planets remain stable for many orbits.
 
 									
